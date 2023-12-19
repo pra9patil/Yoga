@@ -19,12 +19,12 @@ const connection = mysql.createConnection(
 app.post('/form' , (req,res) => {
     const Name = req.body.username;
     const email = req.body.email;
+    const PhoneNumber =req.body.PhoneNumber;
     const password = req.body.password;
-    const phone =req.body.PhoneNumber;
     const Batch = req.body.Batch;
     
-    connection.query("INSERT INTO customers (Name , email,phone , password ,Batch) VALUES (?,?,?,?,?)" , 
-    [Name , email, phone,password ,Batch] ,
+    connection.query("INSERT INTO customers (Name , email,PhoneNumbe , password ,Batch) VALUES (?,?,?,?,?)" , 
+    [Name , email, PhoneNumbe,password ,Batch] ,
     (err,result1) =>{
     if(result){
         return res.send(result);
