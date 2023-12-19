@@ -23,8 +23,8 @@ app.post('/form' , (req,res) => {
     const password = req.body.password;
     const Batch = req.body.Batch;
     
-    connection.query("INSERT INTO customers (Name , email,PhoneNumber , password ,Batch) VALUES (?,?,?,?,?)" , 
-    [Name , email, PhoneNumbe,password ,Batch] ,
+    connection.query("INSERT INTO customers (Name , email,PhoneNumber, password ,Batch) VALUES (?,?,?,?,?)" , 
+    [Name , email, PhoneNumber,password ,Batch] ,
     (err,result1) =>{
     if(result){
         return res.send(result);
