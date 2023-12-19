@@ -25,7 +25,7 @@ app.post('/form' , (req,res) => {
     
     connection.query("INSERT INTO customers (Name , email,PhoneNumber, password ,Batch) VALUES (?,?,?,?,?)" , 
     [Name , email, PhoneNumber,password ,Batch] ,
-    (err,result1) =>{
+    (err,result) =>{
     if(result){
         return res.send(result);
     }
