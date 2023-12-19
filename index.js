@@ -26,69 +26,16 @@ app.post('/form' , (req,res) => {
     connection.query("INSERT INTO customers (Name , email,phone , password ,Batch) VALUES (?,?,?,?,?)" , 
     [Name , email, phone,password ,Batch] ,
     (err,result1) =>{
-    if(result1){
-    if(Batch === '1')
+    if(result){
+        return res.send(result);
+    }
+    else
     {
-        connection.query("INSERT INTO batch1 ( email,Batch) VALUES (?,?)" , 
-            [ email ,Batch] ,
-            (err,result) =>{
-             if(result){
-             var res1 = {result1:result1 ,
-                          result:result}
-             return res.send(res1);
-             }
-             else{
-                return res.send({message : err});
-            }
-        })
-    }
-    else if (Batch === '2'){
-        connection.query("INSERT INTO batch2 ( email,Batch) VALUES (?,?)" , 
-            [ email ,Batch] ,
-            (err,result) =>{
-                if(result){
-                    var res2 = {result1:result1 ,
-                                 result:result}
-                    return res.send(res2);
-                    }
-                    else{
-                       return res.send({message : err});
-                   }
-        })
-    }else if (Batch === '3'){
-        connection.query("INSERT INTO batch3 ( email,Batch) VALUES (?,?)" , 
-            [ email ,Batch] ,
-            (err,result) =>{
-                if(result){
-                    var res3 = {result1:result1 ,
-                                 result:result}
-                    return res.send(res3);
-                    }
-                    else{
-                       return res.send({message : err});
-                   }
-        })
-    }
-    else if (Batch === '4'){
-        connection.query("INSERT INTO batch4 ( email,Batch) VALUES (?,?)" , 
-            [ email ,Batch] ,
-            (err,result) =>{
-                if(result){
-                    var res4 = {result1:result1 ,
-                                 result:result}
-                    return res.send(res4);
-                    }
-                    else{
-                       return res.send({message : err});
-                   }
-        })
+        return res.send({message : err});
     }
     
-     }
- })
+     })
     
-    
-
 })
 app.listen(process.env.PORT,function (err){
     console.log('App Listening at PORT 8000');
