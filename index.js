@@ -23,7 +23,7 @@ app.post('/form' , (req,res) => {
     const password = req.body.password;
     const Batch = req.body.Batch;
     
-    connection.query("INSERT INTO customers (Name , email,PhoneNumber, password ,Batch) VALUES (?,?,?,?,?)" , 
+    connection.query("INSERT INTO custmer (Name , email,PhoneNumber, password ,Batch) VALUES (?,?,?,?,?)" , 
     [Name , email, PhoneNumber,password ,Batch] ,
     (err,result) =>{
     if(result){
