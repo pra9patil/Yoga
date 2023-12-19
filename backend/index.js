@@ -9,10 +9,10 @@ app.use(cors());
 
 const connection = mysql.createConnection(
     {
-        DB_USERNAME: "root",
-        DB_HOST: "localhost",
-        DB_PASSWORD: "root",
-        DB_DBNAME:"yoga",
+       process.env.DB_USERNAME: "root",
+        process.env.DB_HOST: "localhost",
+        process.env.DB_PASSWORD: "root",
+        process.env.DB_DBNAME:"yoga",
     }
 )
 
@@ -90,6 +90,6 @@ app.post('/form' , (req,res) => {
     
 
 })
-app.listen(PORT,function (err){
+app.listen(process.env.PORT,function (err){
     console.log('App Listening at PORT 8000');
 })
